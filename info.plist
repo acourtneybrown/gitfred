@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>de.chris-grieser.github</string>
+	<string>com.notcharlie.githubfred</string>
 	<key>category</key>
 	<string>⭐️</string>
 	<key>connections</key>
@@ -531,13 +531,13 @@
 		</array>
 	</dict>
 	<key>createdby</key>
-	<string>Chris Grieser</string>
+	<string>Adam Brown</string>
 	<key>description</key>
 	<string>GitHub Assistant</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>GitFred</string>
+	<string>GitHubFred</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -2070,6 +2070,6 @@ to set a hotkey to clone the repo in the frontmost browser tab</string>
 	<key>version</key>
 	<string>1.10.4</string>
 	<key>webaddress</key>
-	<string>https://chris-grieser.de/</string>
+	<string>https://github.com/acourtneybrown/githubfred</string>
 </dict>
 </plist>
