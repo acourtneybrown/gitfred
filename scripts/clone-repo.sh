@@ -6,7 +6,6 @@
 https_url="$1"
 source_repo=$(echo "$https_url" | sed -E 's_.*github.com/([^/?]*/[^/?]*).*_\1_')
 reponame=$(echo "$source_repo" | cut -d '/' -f2)
-owner=$(echo "$source_repo" | cut -d '/' -f1)
 ssh_url="git@github.com:$source_repo"
 
 [[ ! -e "$local_repo_folder" ]] && mkdir -p "$local_repo_folder"
@@ -15,21 +14,11 @@ cd "$local_repo_folder" || return 1
 #───────────────────────────────────────────────────────────────────────────────
 # CLONE
 
-# if multiple repos of same name, add owner to directory name of both the
-# existing and the to-be-cloned repo (see https://github.com/chrisgrieser/gitfred/issues/5)
-# (uses `__` as separator, since that string normally does not occur in reponames)
-clone_dir="$reponame"
-if [[ -d "$reponame" ]]; then
-	clone_dir="${owner}__$reponame"
-	# rename existing repo
-	owner_of_existing_repo=$(git -C "$reponame" remote --verbose | tail -n1 | sed -Ee 's|.*:(.*)/.*|\1|')
-	if [[ "$owner_of_existing_repo" == "$owner" ]]; then
-		echo "ERROR: $source_repo already exists."
-		return 1
-	fi
-	mv "$reponame" "${owner_of_existing_repo}__$reponame"
-elif [[ -n $(find . -type directory -maxdepth 1 -name "*__$reponame") ]]; then
-	clone_dir="${owner}__$reponame"
+# To avoid unintentional conflicts in repo names, use the full slug from the GitHub repo name,
+# including the org or user.
+clone_dir="$source_repo"
+if [[ "$fork_on_clone" == "1" ]]; then
+	clone_dir="$github_username/$reponame"
 fi
 
 # clone with depth
