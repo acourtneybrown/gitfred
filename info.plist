@@ -4,8 +4,6 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.notcharlie.githubfred</string>
-	<key>category</key>
-	<string>⭐️</string>
 	<key>connections</key>
 	<dict>
 		<key>0115FC58-CCEF-48EC-A08F-A405E8E30891</key>
@@ -537,7 +535,7 @@
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
-	<string>GitHubFred</string>
+	<string>GitFred</string>
 	<key>objects</key>
 	<array>
 		<dict>
@@ -2085,6 +2083,6 @@ to set a hotkey to clone the repo in the frontmost browser tab</string>
 	<key>version</key>
 	<string>1.10.4</string>
 	<key>webaddress</key>
-	<string>https://github.com/acourtneybrown/githubfred</string>
+	<string>https://github.com/acourtneybrown/gitfred</string>
 </dict>
 </plist>
